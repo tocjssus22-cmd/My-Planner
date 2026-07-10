@@ -5,58 +5,299 @@
 }
 
 body{
-    background:#FFF8F6;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-    padding:20px;
+    background:#FFF9F6;
+    font-family:-apple-system,BlinkMacSystemFont,"Pretendard",sans-serif;
+    color:#333;
 }
 
-.container{
-    max-width:700px;
+.app{
+    max-width:430px;
     margin:auto;
+    min-height:100vh;
+    background:#FFF9F6;
+    padding-bottom:90px;
 }
 
 .header{
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
-    gap:15px;
-    margin-bottom:30px;
+    padding:25px 20px 15px;
+}
+
+.header h1{
+    font-size:30px;
+    font-weight:700;
+    text-align:center;
+}
+
+.header p{
+    margin-top:5px;
+    color:#888;
+    font-size:14px;
+    text-align:center;
 }
 
 .cat{
     width:70px;
+    height:70px;
+    object-fit:contain;
 }
 
-h1{
-    font-size:36px;
-    color:#444;
+.summary{
+    padding:0 18px;
 }
 
-.menu{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+.summary-card{
+    background:#ffffff;
+    border-radius:22px;
+    padding:20px;
+    margin-bottom:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
 }
 
-.card{
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
+.summary-card h3{
+    font-size:16px;
+    color:#777;
+    margin-bottom:10px;
+}
+
+.summary-card h2{
+    font-size:28px;
+    color:#5EA8FF;
+}
+
+.todo{
+    padding:18px;
+}
+
+.todo h2{
+    margin-bottom:15px;
+    font-size:22px;
+}
+#todoList{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:15px;
+}
+
+.todo-item{
+    background:#fff;
+    border-radius:18px;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 6px 15px rgba(0,0,0,.05);
+}
+
+.todo-item span{
+    font-size:16px;
+}
+
+.todo-item input[type="checkbox"]{
+    width:22px;
+    height:22px;
+    accent-color:#5EA8FF;
+}
+
+.addBtn{
+    width:100%;
+    margin-top:18px;
+    padding:16px;
+    border:none;
+    border-radius:18px;
+    background:#5EA8FF;
+    color:white;
+    font-size:18px;
+    font-weight:600;
     cursor:pointer;
     transition:.2s;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
+.addBtn:active{
+    transform:scale(.97);
+}
+
+.bottom{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:15px;
+    width:min(420px,95%);
+    background:white;
+    border-radius:24px;
+    display:flex;
+    justify-content:space-around;
+    padding:14px 8px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.bottom button{
+    background:none;
+    border:none;
+    color:#666;
+    font-size:14px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    cursor:pointer;
+}
+
+.bottom button:hover{
+    color:#5EA8FF;
+}
+
+.bottom button:active{
+    transform:scale(.95);
+}
+/* ---------- 반응형 ---------- */
+
+@media (max-width:480px){
+
+.header{
+    padding:20px 15px 10px;
+}
+
+.header h1{
+    font-size:26px;
+}
+
+.cat{
+    width:60px;
+    height:60px;
+}
+
+.summary{
+    padding:0 12px;
+}
+
+.todo{
+    padding:12px;
+}
+
+.summary-card{
+    padding:16px;
+}
+
+.bottom{
+    width:95%;
+}
+
+}
+
+/* ---------- 카드 애니메이션 ---------- */
+
+.summary-card,
+.todo-item,
+.card{
+
+transition:.25s;
+
+}
+
+.summary-card:hover,
+.todo-item:hover,
 .card:hover{
-    transform:translateY(-5px);
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 24px rgba(0,0,0,.10);
+
 }
 
-.card span{
-    font-size:40px;
+/* ---------- 스크롤 ---------- */
+
+::-webkit-scrollbar{
+
+width:8px;
+
 }
 
-.card h3{
-    margin-top:12px;
-    color:#555;
+::-webkit-scrollbar-thumb{
+
+background:#cdddfd;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:transparent;
+
+}
+
+/* ---------- 색상 ---------- */
+
+.money{
+
+color:#4C8DFF;
+
+font-weight:700;
+
+}
+
+.success{
+
+color:#47B96B;
+
+}
+
+.warning{
+
+color:#FF8C42;
+
+}
+
+.danger{
+
+color:#FF5E78;
+
+}
+
+/* ---------- 다크모드 준비 ---------- */
+
+body.dark{
+
+background:#202225;
+
+color:white;
+
+}
+
+body.dark .app{
+
+background:#202225;
+
+}
+
+body.dark .summary-card,
+body.dark .todo-item,
+body.dark .bottom{
+
+background:#2c2f36;
+
+color:white;
+
+}
+
+body.dark .header p{
+
+color:#bbb;
+
+}
+
+body.dark .bottom button{
+
+color:#ddd;
+
+}
+
+body.dark .bottom button:hover{
+
+color:#7DB8FF;
+
 }

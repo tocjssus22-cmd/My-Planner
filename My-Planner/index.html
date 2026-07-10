@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Planner</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <img src="cat-gray.png" class="cat">
+        <h1>My Planner</h1>
+        <img src="cat-gold.png" class="cat">
+    </div>
+
+    <div class="menu">
+
+        <div class="card" onclick="showPage('todo')">
+            <span>✅</span>
+            <h3>오늘 할 일</h3>
+        </div>
+
+        <div class="card" onclick="showPage('income')">
+            <span>💰</span>
+            <h3>수입</h3>
+        </div>
+
+        <div class="card" onclick="showPage('expense')">
+            <span>💸</span>
+            <h3>지출</h3>
+        </div>
+
+        <div class="card" onclick="showPage('bill')">
+            <span>📅</span>
+            <h3>납부일</h3>
+        </div>
+
+        <div class="card" onclick="showPage('repeat')">
+            <span>🔁</span>
+            <h3>반복일정</h3>
+        </div>
+
+        <div class="card" onclick="showPage('late')">
+            <span>🚨</span>
+            <h3>연체관리</h3>
+        </div>
+
+        <div class="card" onclick="showPage('stats')">
+            <span>📊</span>
+            <h3>통계</h3>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
